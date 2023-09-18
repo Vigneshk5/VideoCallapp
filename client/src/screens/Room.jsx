@@ -113,20 +113,44 @@ const RoomPage = () => {
     <div>
       room
       <h4>{remoteSocketId ? "connected" : "no user found"}</h4>
-      {myStream && <button onClick={sendStreams}>Send Stream</button>}
-      {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
-      {myStream && (
-        <>
-          <h2>my stream</h2>
-          <ReactPlayer playing muted height="200px" width="400px" url={myStream} />
-        </>
-      )}
-      {remoteStream && (
-        <>
-          <h2>remote stream</h2>
-          <ReactPlayer playing muted height="200px" width="400px" url={remoteStream} />
-        </>
-      )}
+      <div className="button-box">
+        {myStream && (
+          <button className="button-27" onClick={sendStreams}>
+            Send Stream
+          </button>
+        )}
+        {remoteSocketId && (
+          <button className="button-27" onClick={handleCallUser}>
+            CALL
+          </button>
+        )}
+      </div>
+      <div className="video-container">
+        {remoteStream && (
+          <>
+            <ReactPlayer
+              playing
+              width="100%"
+              height="100%"
+              className="react-player large-video"
+              url={remoteStream}
+            />
+          </>
+        )}
+        {myStream && (
+          <>
+            <div>
+              <ReactPlayer
+                playing
+                width="30%"
+                height="30%"
+                className="react-player small-video"
+                url={myStream}
+              />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
