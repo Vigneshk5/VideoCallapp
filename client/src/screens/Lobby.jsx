@@ -33,28 +33,63 @@ const LobbyScreen = () => {
   }, [socket, handleJoinRoom]);
 
   return (
-    <div>
-      <form onSubmit={handleSubmitForm}>
-        <label style={{ display: "block" }} htmlFor="email">
-          Email ID
-        </label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label style={{ display: "block" }} htmlFor="room">
-          Room Number
-        </label>
-        <input
-          type="text"
-          id="room"
-          value={room}
-          onChange={(e) => setRoom(e.target.value)}
-        />
-        <button style={{ display: "block" }}>Join</button>
-      </form>
+    // <div>
+    //   <form onSubmit={handleSubmitForm}>
+    //     <label style={{ display: "block" }} htmlFor="email">
+    //       Email ID
+    //     </label>
+    //     <input
+    //       type="email"
+    //       id="email"
+    //       value={email}
+    //       onChange={(e) => setEmail(e.target.value)}
+    //     />
+    //     <label style={{ display: "block" }} htmlFor="room">
+    //       Room Number
+    //     </label>
+    //     <input
+    //       type="text"
+    //       id="room"
+    //       value={room}
+    //       onChange={(e) => setRoom(e.target.value)}
+    //     />
+    //     <button style={{ display: "block" }}>Join</button>
+    //   </form>
+    // </div>
+
+    <div id="card">
+      <div id="card-content">
+        <div id="card-title">
+          <h2>JOIN ROOM</h2>
+          <div className="underline-title"></div>
+        </div>
+        <form onSubmit={handleSubmitForm} className="form">
+          <label htmlFor="email">Username</label>
+
+          <input
+            className="form-content"
+            type="text"
+            id="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <div className="form-border"></div>
+          <label htmlFor="room">Room No</label>
+          <input
+            className="form-content"
+            type="text"
+            id="room"
+            value={room}
+            required
+            onChange={(e) => setRoom(e.target.value)}
+          />
+          <div className="form-border"></div>
+          <button id="submit-btn" type="submit" name="submit" value="LOGIN">
+            Join
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
