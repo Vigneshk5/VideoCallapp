@@ -132,7 +132,7 @@ const RoomPage = () => {
               playing
               width="100%"
               height="100%"
-              className="react-player large-video"
+              className="large-video"
               url={remoteStream}
             />
           </>
@@ -144,7 +144,7 @@ const RoomPage = () => {
                 playing
                 width="30%"
                 height="30%"
-                className="react-player small-video"
+                className="small-video"
                 url={myStream}
               />
             </div>
